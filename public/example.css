@@ -1,0 +1,21 @@
+body{
+    background:#000000;
+  }
+  
+  
+  .page-sections{
+    width: 20%;
+    height: 50%;
+    position: absolute;
+    outline: 1px solid #fff
+  }
+  
+  /* #first{
+    
+  } */
+  
+  #main-header{
+    color: #fff;
+    
+    
+  }
