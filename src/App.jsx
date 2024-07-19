@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Dropdown from './components/navigation/dropdown';
 
 function App() {
   return (
-    <div className="App">
-        <h1>Group 3 React App</h1>
-        <p> test</p>
+    <div>
+        <Dropdown />
+        <h1>Home</h1>
+        <p>Welcome to the home page!</p>
     </div>
   );
 }
