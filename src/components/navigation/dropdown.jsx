@@ -18,6 +18,7 @@ const Dropdown = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/Blank">Blank</Link></li>
                     <li><Link to="/Contact">Contact</Link></li>
+                    <li><Link to="/About">About</Link></li>
                 </ul>
             )}
         </div>

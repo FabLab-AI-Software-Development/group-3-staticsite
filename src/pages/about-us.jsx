@@ -1,11 +1,12 @@
 import React from 'react'
+import Dropdown from '../components/navigation/dropdown';
 
-
-
-const About = (Props) => {
+const About = () => {
     return  (
         <div>
-            <h1>Hello! We are the Champions!</h1>
+            <Dropdown />
+            <h1>About Us</h1>
+            <p>Hello! We are the Champions!</p>
         </div>
     )
 }

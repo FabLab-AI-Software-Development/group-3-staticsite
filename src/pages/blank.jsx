@@ -6,7 +6,7 @@ const Blank = () => {
         <div>
            <Dropdown />
            <h1>Blank</h1>
-           <h1>blank page </h1>
+           <p>blank page</p>
         </div>
     );
 };
