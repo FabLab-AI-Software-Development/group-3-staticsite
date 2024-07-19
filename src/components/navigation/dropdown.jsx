@@ -16,6 +16,7 @@ const Dropdown = () => {
             {isOpen && (
                 <ul className="dropdown-menu">
                     <li><Link to="/">Home</Link></li>
+                    <li><Link to="/Blank">Blank</Link></li>
                     <li><Link to="/Contact">Contact</Link></li>
                 </ul>
             )}

@@ -1,11 +1,14 @@
 import React from 'react';
+import Dropdown from '../components/navigation/dropdown';
 
-const blank = () => {
+const Blank = () => {
     return (
-        <div className="App">
+        <div>
+           <Dropdown />
+           <h1>Blank</h1>
            <h1>blank page </h1>
         </div>
     );
 };
 
-export default blank;
+export default Blank;
