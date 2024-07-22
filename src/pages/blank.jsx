@@ -5,8 +5,13 @@ const Blank = () => {
     return (
         <div>
            <Dropdown />
-           <h1>Blank</h1>
-           <p>blank page</p>
+           <h1>Training Topics</h1>
+           <p>Human Resources-Recruitment</p>
+           <p>Human Resources-Performance Management</p>
+           <p>Human Resources-Conflict Resolution</p>
+           <p>Human Resources-Employee Engagement</p>
+           <p>Food-Bussing & Tablesetting</p>
+           <Dropdown />
         </div>
     );
 };

@@ -11,7 +11,7 @@ const Dropdown = () => {
     return (
         <div className="dropdown">
             <button className="dropdown-toggle" onClick={toggleDropdown}>
-                Toggle Dropdown
+                Toggle Drowndown
             </button>
             {isOpen && (
                 <ul className="dropdown-menu">
