@@ -9,8 +9,8 @@ const Dropdown = () => {
     }
 
     return (
-        <div className="dropdown">
-            <button className="dropdown-toggle" onClick={toggleDropdown}>
+        <div>
+            <button className="" onClick={toggleDropdown}>
                 Toggle Dropdown
             </button>
             {isOpen && (
@@ -19,6 +19,7 @@ const Dropdown = () => {
                     <li><Link to="/Blank">Blank</Link></li>
                     <li><Link to="/Contact">Contact</Link></li>
                     <li><Link to="/About">About</Link></li>
+                    <li><Link to="/ChatInput">Chatbot</Link></li>
                 </ul>
             )}
         </div>

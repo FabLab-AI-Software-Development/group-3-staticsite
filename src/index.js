@@ -7,6 +7,7 @@ import App from './App';
 import Contact from './pages/contact';
 import Blank from './pages/blank';
 import About from './pages/about-us';
+import ChatInput from './components/chat/chatinput';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
         <Route path="/Blank" element={<Blank />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/About" element={<About />} />
+        <Route path="/ChatInput" element={<ChatInput />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
