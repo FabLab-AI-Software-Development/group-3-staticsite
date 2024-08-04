@@ -2,6 +2,7 @@ import { axiosUtil } from "./axios-client";
 
 const userSlug = '/users';
 const authorSlug = '/authors';
+const employeeSlug = '/employees';
 
 
 async function fetchUsers() {
@@ -12,6 +13,16 @@ async function fetchUsers() {
         return response.data;
     } catch (error) {
         console.error(error);
+    }
+}
+
+async function fetchEmployees() {
+    try {
+            const response = await axiosUtil.get(employeeSlug);
+            console.log("getEmployees", response.data);
+            return response.data;
+    } catch (error) {
+            console.error(error);
     }
 }
 
@@ -27,4 +38,15 @@ async function submitUserData(userData) {
     }
 }
 
-export {fetchUsers, submitUserData};
+async function submitEmployeeData(employeeData) {
+
+    console.log("Employee==========================", employeeData);
+    try {
+        const response = await axiosUtil.post(employeeSlug + '/', employeeData);
+        console.log("Response", response);
+    } catch (error) {
+        console.error("Error submitting employee data:", error);
+    }
+}
+
+export {fetchUsers, submitUserData, fetchEmployees, submitEmployeeData};

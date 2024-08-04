@@ -19,9 +19,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/api/v1/quotes", require("./routes/quotes"));
-app.use("/api/v1/authors", require("./routes/authors"));
-app.use("/api/v1/users", require("./routes/users"));
 app.use("/api/v1/employees", require("./routes/employees"));
+app.use("/api/v1/companies", require("./routes/companies"));
+app.use("/api/v1/questions", require("./routes/questions"));
 
 module.exports = app;

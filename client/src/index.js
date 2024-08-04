@@ -8,6 +8,7 @@ import Contact from './pages/contact';
 import Blank from './pages/blank';
 import About from './pages/about-us';
 import ChatInput from './components/chat/chatinput';
+import { Employee } from './pages/employees';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +17,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/Blank" element={<Blank />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Employee" element={<Employee />} />
         <Route path="/About" element={<About />} />
         <Route path="/ChatInput" element={<ChatInput />} />
       </Routes>
