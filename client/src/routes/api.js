@@ -2,7 +2,7 @@ import { axiosUtil } from "./axios-client";
 
 const employeeSlug = '/employees';
 const companySlug = '/companies';
-
+const questionSlug = '/questions';
 
 async function fetchEmployees() {
     try {
@@ -17,6 +17,16 @@ async function fetchCompanies() {
     try {
             const response = await axiosUtil.get(companySlug);
             console.log("getCompanies", response.data);
+            return response.data;
+    } catch (error) {
+            console.error(error);
+    }
+}
+
+async function fetchQuestions() {
+    try {
+            const response = await axiosUtil.get(questionSlug);
+            console.log("getQuestions", response.data);
             return response.data;
     } catch (error) {
             console.error(error);
@@ -44,4 +54,14 @@ async function submitCompanyData(companyData) {
     }
 }
 
-export {fetchEmployees, fetchCompanies, submitEmployeeData, submitCompanyData};
+async function submitQuestionData(questionData) {
+    console.log("Question==========================", questionData);
+    try {
+        const response = await axiosUtil.post(questionSlug + '/', questionData);
+        console.log("Response", response);
+    } catch (error) {
+        console.error("Error submitting question data:", error);
+    }
+}
+
+export {fetchEmployees, fetchCompanies, fetchQuestions, submitEmployeeData, submitCompanyData, submitQuestionData};

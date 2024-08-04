@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchCompanies, submitCompanyData} from "../routes/api";
+import Dropdown from '../components/navigation/dropdown';
 
 const Company = () => {
     const [companies, setCompanies] = useState([]);
@@ -35,6 +36,7 @@ const Company = () => {
 
     return (
         <div>
+            <Dropdown />
             <h1>Companies</h1>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter company name" />
             <input type="text" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Enter industry" />
