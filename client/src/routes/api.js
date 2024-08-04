@@ -42,7 +42,7 @@ async function submitEmployeeData(employeeData) {
 
     console.log("Employee==========================", employeeData);
     try {
-        const response = await axiosUtil.post(employeeSlug + '/hire', employeeData);
+        const response = await axiosUtil.post(employeeSlug + '/', employeeData);
         console.log("Response", response);
     } catch (error) {
         console.error("Error submitting employee data:", error);
