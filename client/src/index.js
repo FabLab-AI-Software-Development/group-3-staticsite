@@ -4,11 +4,10 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import App from './App';
-import Contact from './pages/contact';
-import Blank from './pages/blank';
-import About from './pages/about-us';
 import ChatInput from './components/chat/chatinput';
 import { Employee } from './pages/employees';
+import { Company } from './pages/companies';
+import { Question } from './pages/questions';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,9 +15,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/Blank" element={<Blank />} />
+        <Route path="/Company" element={<Company />} />
         <Route path="/Employee" element={<Employee />} />
-        <Route path="/About" element={<About />} />
+        <Route path="/Question" element={<Question />} />
         <Route path="/ChatInput" element={<ChatInput />} />
       </Routes>
     </BrowserRouter>

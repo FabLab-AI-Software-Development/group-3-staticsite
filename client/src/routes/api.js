@@ -1,20 +1,8 @@
 import { axiosUtil } from "./axios-client";
 
-const userSlug = '/users';
-const authorSlug = '/authors';
 const employeeSlug = '/employees';
-
-
-async function fetchUsers() {
-
-    try {
-        const response = await axiosUtil.get(userSlug);
-        console.log("getUsers", response.data);
-        return response.data;
-    } catch (error) {
-        console.error(error);
-    }
-}
+const companySlug = '/companies';
+const questionSlug = '/questions';
 
 async function fetchEmployees() {
     try {
@@ -25,16 +13,23 @@ async function fetchEmployees() {
             console.error(error);
     }
 }
-
-
-async function submitUserData(userData) {
-
-    console.log("User==========================", userData);
+async function fetchCompanies() {
     try {
-        const response = await axiosUtil.post(userSlug + '/signup', userData);
-        console.log("Response", response);
+            const response = await axiosUtil.get(companySlug);
+            console.log("getCompanies", response.data);
+            return response.data;
     } catch (error) {
-        console.error("Error submitting user data:", error);
+            console.error(error);
+    }
+}
+
+async function fetchQuestions() {
+    try {
+            const response = await axiosUtil.get(questionSlug);
+            console.log("getQuestions", response.data);
+            return response.data;
+    } catch (error) {
+            console.error(error);
     }
 }
 
@@ -49,4 +44,24 @@ async function submitEmployeeData(employeeData) {
     }
 }
 
-export {fetchUsers, submitUserData, fetchEmployees, submitEmployeeData};
+async function submitCompanyData(companyData) {   
+    console.log("Company==========================", companyData);
+    try {
+        const response = await axiosUtil.post(companySlug + '/', companyData);
+        console.log("Response", response);
+    } catch (error) {
+        console.error("Error submitting company data:", error);
+    }
+}
+
+async function submitQuestionData(questionData) {
+    console.log("Question==========================", questionData);
+    try {
+        const response = await axiosUtil.post(questionSlug + '/', questionData);
+        console.log("Response", response);
+    } catch (error) {
+        console.error("Error submitting question data:", error);
+    }
+}
+
+export {fetchEmployees, fetchCompanies, fetchQuestions, submitEmployeeData, submitCompanyData, submitQuestionData};
