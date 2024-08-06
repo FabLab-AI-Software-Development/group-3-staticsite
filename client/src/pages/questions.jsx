@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchQuestions, submitQuestionData} from "../routes/api";
+import { fetchOpenAI } from "../routes/openai-client";
 import Dropdown from '../components/navigation/dropdown';
 
 const Question = () => {
@@ -8,20 +9,14 @@ const Question = () => {
     const [response, setResponse] = useState("");
     const [employeeId, setEmployeeId] = useState(1);
     
-    const submitQuestion = async (request, response, employeeId) => {
-        console.log("submitQuestionData", request, response, employeeId);
-        const questionData = {
-            request: request,
-            response: response,
-            employeeId: employeeId,
-        };
+    const fetchOpenAIResponse = async (message, employeeId) => {
         try {
-            await submitQuestionData(questionData);
-            console.log("Question data submitted");
+            console.log("Question: ", message);
+            await fetchOpenAI(message, employeeId);
         } catch (error) {
-            console.error("Error submitting question data:", error);
+            console.error("Error fetching companies:", error);
         }
-    }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,7 +37,7 @@ const Question = () => {
             <h1>Questions</h1>
             <input type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />
             <input type="number" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} placeholder="Enter employee id" />
-            <button onClick={() => submitQuestion(request, response, employeeId)}>Submit</button>
+            <button onClick={() => fetchOpenAIResponse(request, employeeId)}>Submit</button>
 
             {questions.length > 0 ? (
                 questions.map((question) => (
