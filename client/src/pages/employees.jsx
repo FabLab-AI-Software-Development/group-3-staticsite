@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchEmployees, submitEmployeeData} from "../routes/api";
-import Dropdown from '../components/navigation/dropdown';
+import Navigation from '../components/navigation/navigation';
 
 const Employee = () => {
     const [employees, setEmployees] = useState([]);
@@ -38,7 +38,7 @@ const Employee = () => {
 
     return (
         <div>
-            <Dropdown />
+            <Navigation />
             <h1>Employees</h1>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter employee name" />
             <input type="text" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Enter employee role" />

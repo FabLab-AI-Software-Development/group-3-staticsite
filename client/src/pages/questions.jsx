@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchQuestions, submitQuestionData} from "../routes/api";
 import { fetchOpenAI } from "../routes/openai-client";
-import Dropdown from '../components/navigation/dropdown';
+import Navigation from '../components/navigation/navigation';
 
 const Question = () => {
     const [questions, setQuestions] = useState([]);
@@ -33,7 +33,7 @@ const Question = () => {
 
     return (
         <div>
-            <Dropdown />
+            <Navigation />
             <h1>Questions</h1>
             <input type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />
             <input type="number" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} placeholder="Enter employee id" />
