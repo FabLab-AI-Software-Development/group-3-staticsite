@@ -37,11 +37,12 @@ const Company = () => {
     return (
         <div>
             <Navigation />
-            <h1>Companies</h1>
+            <h2>Add Company</h2>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter company name" />
             <input type="text" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Enter industry" />
             <button onClick={() => submitCompany(name, industry)}>Submit</button>
-
+            
+            <h2>Companies</h2>
             {companies.length > 0 ? (
                 companies.map((company) => (
                     <p key={company.id}>{company.name} {company.industry}</p>

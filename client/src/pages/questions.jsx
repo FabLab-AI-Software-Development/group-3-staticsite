@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { fetchQuestions, submitQuestionData} from "../routes/api";
+import { fetchQuestions, fetchEmployees, submitQuestionData} from "../routes/api";
 import { fetchOpenAI } from "../routes/openai-client";
 import Navigation from '../components/navigation/navigation';
 
 const Question = () => {
     const [questions, setQuestions] = useState([]);
+    const [employees, setEmployees] = useState([]);
     const [request, setRequest] = useState("");
     const [response, setResponse] = useState("");
     const [employeeId, setEmployeeId] = useState(1);
@@ -24,6 +25,9 @@ const Question = () => {
                 const fetchedQuestions = await fetchQuestions();
                 console.log("Questions", fetchQuestions);
                 setQuestions(fetchedQuestions);
+                const fetchedEmployees = await fetchEmployees();
+                console.log("Employees", fetchedEmployees);
+                setEmployees(fetchedEmployees);
             } catch (error) {
                 console.error("Error fetching questions:", error);
             }
@@ -34,11 +38,19 @@ const Question = () => {
     return (
         <div>
             <Navigation />
-            <h1>Questions</h1>
+            <h2>Ask a Question</h2>
             <input type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />
-            <input type="number" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} placeholder="Enter employee id" />
+            
+            <select value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}>
+                {employees.map((employee) => (
+                    <option key={employee.id} value={employee.id}>
+                        {employee.name}
+                    </option>
+                ))}
+            </select>
             <button onClick={() => fetchOpenAIResponse(request, employeeId)}>Submit</button>
 
+            <h2>Questions</h2>
             {questions.length > 0 ? (
                 questions.map((question) => (
                     <p key={question.id}>{question.request}<br/>{question.response}</p>

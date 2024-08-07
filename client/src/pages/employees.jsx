@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { fetchEmployees, submitEmployeeData} from "../routes/api";
+import { fetchEmployees, fetchCompanies, submitEmployeeData} from "../routes/api";
 import Navigation from '../components/navigation/navigation';
 
 const Employee = () => {
     const [employees, setEmployees] = useState([]);
+    const [companies, setCompanies] = useState([]);
     const [name, setName] = useState("");
     const [role, setRole] = useState("");
     const [companyId, setCompanyId] = useState(1);
@@ -13,7 +14,7 @@ const Employee = () => {
         const employeeData = {
             name: name,
             role: role,
-            companyId: companyId,
+            companyId: parseInt(companyId),
         };
         try {
             await submitEmployeeData(employeeData);
@@ -29,6 +30,10 @@ const Employee = () => {
                 const fetchedEmployees = await fetchEmployees();
                 console.log("Employees", fetchedEmployees);
                 setEmployees(fetchedEmployees);
+
+                const fetchedCompanies = await fetchCompanies();
+                console.log("Companies", fetchedCompanies);
+                setCompanies(fetchedCompanies);
             } catch (error) {
                 console.error("Error fetching employees:", error);
             }
@@ -39,12 +44,19 @@ const Employee = () => {
     return (
         <div>
             <Navigation />
-            <h1>Employees</h1>
+            <h2>Add Employee</h2>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter employee name" />
             <input type="text" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Enter employee role" />
-            <input type="number" value={companyId} onChange={(e) => setCompanyId(e.target.value)} placeholder="Enter company id" />
-    
+            <select value={companyId} onChange={(e) => setCompanyId(e.target.value)}>
+                {companies.map((company) => (
+                    <option key={company.id} value={company.id}>
+                        {company.name}
+                    </option>
+                ))}
+            </select>
             <button onClick={() => submitEmployee(name, role, companyId)}>Submit</button>
+            
+            <h2>Employees</h2>
             {employees.length > 0 ? (
                 employees.map((employee) => (
                     <p key={employee.id}>{employee.name} {employee.role}</p>
