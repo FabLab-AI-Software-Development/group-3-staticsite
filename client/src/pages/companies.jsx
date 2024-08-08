@@ -44,13 +44,23 @@ const Company = () => {
             
             <br/><br/>
             <h2>Companies</h2>
+            <br/>
+            <table id="customers">
+                <tr>
+                    <th>Name</th>
+                    <th>Industry</th>
+                </tr>    
             {companies.length > 0 ? (
                 companies.map((company) => (
-                    <p key={company.id}>{company.name} {company.industry}</p>
+                    <tr key={company.id}>
+                        <td>{company.name}</td> 
+                        <td>{company.industry}</td>
+                    </tr>
                 ))
             ) : (
                 <p>No companies found</p>
             )}
+            </table>
         </div>
     );
 };
