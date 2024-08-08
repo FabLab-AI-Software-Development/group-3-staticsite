@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchEmployees, fetchCompanies, submitEmployeeData} from "../routes/api";
+import { fetchEmployees, fetchCompanies, submitEmployeeData, fetchEmployeesByCompany} from "../routes/api";
 import Navigation from '../components/navigation/navigation';
 
 const Employee = () => {
@@ -27,19 +27,19 @@ const Employee = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const fetchedEmployees = await fetchEmployees();
-                console.log("Employees", fetchedEmployees);
-                setEmployees(fetchedEmployees);
-
                 const fetchedCompanies = await fetchCompanies();
                 console.log("Companies", fetchedCompanies);
                 setCompanies(fetchedCompanies);
+                
+                const fetchedEmployees = await fetchEmployeesByCompany(companyId);
+                console.log("Employees", fetchedEmployees);
+                setEmployees(fetchedEmployees);
             } catch (error) {
                 console.error("Error fetching employees:", error);
             }
         };
         fetchData();
-    }, []);
+    }, [ companyId ]);
 
     return (
         <div>

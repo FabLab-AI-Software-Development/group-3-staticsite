@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchQuestions, fetchEmployees, submitQuestionData} from "../routes/api";
+import { fetchQuestions, fetchEmployees, fetchQuestionsByEmployee, submitQuestionData} from "../routes/api";
 import { fetchOpenAI } from "../routes/openai-client";
 import Navigation from '../components/navigation/navigation';
 
@@ -22,18 +22,19 @@ const Question = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const fetchedQuestions = await fetchQuestions();
-                console.log("Questions", fetchQuestions);
-                setQuestions(fetchedQuestions);
                 const fetchedEmployees = await fetchEmployees();
                 console.log("Employees", fetchedEmployees);
                 setEmployees(fetchedEmployees);
+
+                const fetchedQuestions = await fetchQuestionsByEmployee(employeeId);
+                console.log("Questions", fetchedQuestions);
+                setQuestions(fetchedQuestions);
             } catch (error) {
                 console.error("Error fetching questions:", error);
             }
         };
         fetchData();
-    }, []);
+    }, [ employeeId ]);
 
     return (
         <div>
@@ -54,10 +55,8 @@ const Question = () => {
             {questions.length > 0 ? (
                 questions.map((question) => (
                     <div class="chat">
-                        <p key={question.id}>
-                         <div class="msg sent">{question.request}<br/></div>
-                         <div class="msg rcvd">{question.response}</div>
-                        </p>
+                        <div class="msg sent">{question.request}<br/></div>
+                        <div class="msg rcvd">{question.response}</div>
                     </div>
                 ))
             ) : (
