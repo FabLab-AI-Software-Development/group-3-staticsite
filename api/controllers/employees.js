@@ -38,6 +38,19 @@ const createEmployee = async (req, res) => {
     }
   }
 
+  const getEmployeesByCompany = async (req, res) => { 
+    try {
+      const employees = await prisma.employee.findMany({
+        where: {
+          companyId: Number(req.params.id),
+        },
+      });
+      return res.status(200).json(employees);
+    } catch (error) {
+      return res.status(500).json(error.message || "There was a server error.");
+    } 
+  }
+
   const deleteEmployee = async (req, res) => {
     try {
       await prisma.employee.delete({
@@ -70,4 +83,4 @@ const createEmployee = async (req, res) => {
     }
   };
 
-  module.exports = { createEmployee, deleteEmployee, getEmployees, getEmployee, updateEmployee };
+  module.exports = { createEmployee, deleteEmployee, getEmployees, getEmployeesByCompany, getEmployee, updateEmployee };

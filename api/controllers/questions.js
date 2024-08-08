@@ -38,6 +38,19 @@ const getQuestion = async (req, res) => {
   }
 }   
 
+const getQuestionsByEmployee = async (req, res) => {
+  try {
+    const questions = await prisma.question.findMany({
+      where: {
+        employeeId: Number(req.params.id),
+      },
+    });
+    return res.status(200).json(questions);
+  } catch (error) {
+    return res.status(500).json(error.message || "There was a server error.");
+  }
+}
+
 const deleteQuestion = async (req, res) => {  
   try {
     await prisma.question.delete({
@@ -70,4 +83,4 @@ const updateQuestion = async (req, res) => {
   }
 } 
 
-module.exports = { createQuestion, deleteQuestion, getQuestions, getQuestion, updateQuestion };
+module.exports = { createQuestion, deleteQuestion, getQuestions, getQuestion, getQuestionsByEmployee, updateQuestion };

@@ -43,3 +43,151 @@
   width: 100%;
   padding: 64px;
 }
+
+/* Scroll down ↓ */
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  min-height: 300px;
+  padding: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 300px;
+  list-style: none;
+  color: #fff;
+  background-color: #348f6c;
+  border-radius: 40px;
+}
+
+.item {
+  /* important: position, z-index, background-color!!!, border-radius */
+  position: relative;
+  z-index: 2;
+  padding: 10px 20px;
+  background-color: #348f6c;
+  border-radius: 0 20px 20px 0;
+}
+
+.active {
+  /* important: z-index, border-radius */
+  z-index: 1;
+  color: #333;
+  background-color: #fff;
+  border-radius: 20px 0 0 20px;
+}
+
+/* important: ... Everything is important :) */
+.active::before,
+.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+}
+
+.active::before {
+  top: -20px;
+}
+
+.active::after {
+  bottom: -20px;
+}
+
+/* QuickReset */ * {margin: 0; box-sizing: border-box;}
+
+.chat {
+  --rad: 20px;
+  --rad-sm: 3px;
+  font: 16px/1.5 sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.msg {
+  position: relative;
+  max-width: 75%;
+  padding: 7px 15px;
+  margin-bottom: 2px;
+}
+
+.msg.sent {
+  border-radius: var(--rad) var(--rad-sm) var(--rad-sm) var(--rad);
+  background: #348f6c;
+  color: #fff;
+  /* moves it to the right */
+  margin-left: auto;
+}
+
+.msg.rcvd {
+  border-radius: var(--rad-sm) var(--rad) var(--rad) var(--rad-sm);
+  background: #f1f1f1;
+  color: #555;
+  /* moves it to the left */
+  margin-right: auto;
+}
+
+.text-input {
+  width: 20%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #348f6c;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 5px;
+}
+
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.left-div {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.submitButton {
+	background-color:#348f6c;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.submitButton:hover {
+	background-color:#5cbf2a;
+}
+.submitButton:active {
+	position:relative;
+	top:1px;
+}

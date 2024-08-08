@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchCompanies, submitCompanyData} from "../routes/api";
-import Dropdown from '../components/navigation/dropdown';
+import Navigation from '../components/navigation/navigation';
 
 const Company = () => {
     const [companies, setCompanies] = useState([]);
@@ -35,13 +35,15 @@ const Company = () => {
     }, []);
 
     return (
-        <div>
-            <Dropdown />
-            <h1>Companies</h1>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter company name" />
-            <input type="text" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Enter industry" />
-            <button onClick={() => submitCompany(name, industry)}>Submit</button>
-
+        <div class="centered-div">
+            <Navigation />
+            <h2>Add Company</h2>
+            <input class="text-input" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter company name" />
+            <input class="text-input" type="text" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Enter industry" />
+            <button class="submitButton" onClick={() => submitCompany(name, industry)}>Submit</button>
+            
+            <br/><br/>
+            <h2>Companies</h2>
             {companies.length > 0 ? (
                 companies.map((company) => (
                     <p key={company.id}>{company.name} {company.industry}</p>
