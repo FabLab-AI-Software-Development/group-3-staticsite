@@ -42,7 +42,7 @@ const Employee = () => {
     }, [ companyId ]);
 
     return (
-        <div>
+        <div class="centered-div">
             <Navigation />
             <h2>Add Employee</h2>
             <input class="text-input" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter employee name" />
@@ -54,8 +54,9 @@ const Employee = () => {
                     </option>
                 ))}
             </select>
-            <button onClick={() => submitEmployee(name, role, companyId)}>Submit</button>
+            <button class="submitButton" onClick={() => submitEmployee(name, role, companyId)}>Submit</button>
             
+            <br/><br/>  
             <h2>Employees</h2>
             {employees.length > 0 ? (
                 employees.map((employee) => (

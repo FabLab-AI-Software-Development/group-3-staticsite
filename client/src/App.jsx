@@ -4,8 +4,9 @@ import Navigation from './components/navigation/navigation';
 
 function App() {
   return (
-    <div>
+    <div class="left-div">
         <Navigation />
+        <br/><br/>
         <h1>Welcome to Horizon Human Resources</h1>
         <h2>Your A.I. Assistant for everyday Human Resources issues</h2>
         <h3>What do we do?</h3>
@@ -27,7 +28,6 @@ function App() {
         <p> 8 - HR Consulting: They provide expert advice on HR strategies, policies, and best practices to improve overall organizational effectiveness.</p>
 
         <p>By outsourcing these functions to Horizon Human Resources, your business can focus on their core operations while ensuring their HR needs are professionally managed.</p>
-
     </div>
   );
 }
