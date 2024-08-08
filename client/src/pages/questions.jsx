@@ -13,6 +13,10 @@ const Question = () => {
         try {
             console.log("Question: ", message);
             await fetchOpenAI(message, employeeId);
+
+            const fetchedQuestions = await fetchQuestionsByEmployee(employeeId);
+            console.log("Questions", fetchedQuestions);
+            setQuestions(fetchedQuestions); 
         } catch (error) {
             console.error("Error fetching companies:", error);
         }
