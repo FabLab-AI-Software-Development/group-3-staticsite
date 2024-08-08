@@ -109,5 +109,41 @@
   bottom: -20px;
 }
 
+/* QuickReset */ * {margin: 0; box-sizing: border-box;}
+
+.chat {
+  --rad: 20px;
+  --rad-sm: 3px;
+  font: 16px/1.5 sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.msg {
+  position: relative;
+  max-width: 75%;
+  padding: 7px 15px;
+  margin-bottom: 2px;
+}
+
+.msg.sent {
+  border-radius: var(--rad) var(--rad-sm) var(--rad-sm) var(--rad);
+  background: #348f6c;
+  color: #fff;
+  /* moves it to the right */
+  margin-left: auto;
+}
+
+.msg.rcvd {
+  border-radius: var(--rad-sm) var(--rad) var(--rad) var(--rad-sm);
+  background: #f1f1f1;
+  color: #555;
+  /* moves it to the left */
+  margin-right: auto;
+}
+
 
 

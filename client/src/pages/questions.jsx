@@ -53,7 +53,12 @@ const Question = () => {
             <h2>Questions</h2>
             {questions.length > 0 ? (
                 questions.map((question) => (
-                    <p key={question.id}>{question.request}<br/>{question.response}</p>
+                    <div class="chat">
+                        <p key={question.id}>
+                         <div class="msg sent">{question.request}<br/></div>
+                         <div class="msg rcvd">{question.response}</div>
+                        </p>
+                    </div>
                 ))
             ) : (
                 <p>No questions found</p>
