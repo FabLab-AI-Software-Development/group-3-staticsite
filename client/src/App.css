@@ -145,5 +145,14 @@
   margin-right: auto;
 }
 
+.text-input {
+  width: 20%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #348f6c;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 5px;
+}
 
 

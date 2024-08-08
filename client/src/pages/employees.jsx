@@ -45,9 +45,9 @@ const Employee = () => {
         <div>
             <Navigation />
             <h2>Add Employee</h2>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter employee name" />
-            <input type="text" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Enter employee role" />
-            <select value={companyId} onChange={(e) => setCompanyId(e.target.value)}>
+            <input class="text-input" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter employee name" />
+            <input class="text-input" type="text" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Enter employee role" />
+            <select class="text-input" value={companyId} onChange={(e) => setCompanyId(e.target.value)}>
                 {companies.map((company) => (
                     <option key={company.id} value={company.id}>
                         {company.name}

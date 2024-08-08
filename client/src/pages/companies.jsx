@@ -38,8 +38,8 @@ const Company = () => {
         <div>
             <Navigation />
             <h2>Add Company</h2>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter company name" />
-            <input type="text" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Enter industry" />
+            <input class="text-input" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter company name" />
+            <input class="text-input" type="text" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Enter industry" />
             <button onClick={() => submitCompany(name, industry)}>Submit</button>
             
             <h2>Companies</h2>

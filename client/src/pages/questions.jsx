@@ -39,9 +39,9 @@ const Question = () => {
         <div>
             <Navigation />
             <h2>Ask a Question</h2>
-            <input type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />
+            <input class="text-input" type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />
             
-            <select value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}>
+            <select class="text-input" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}>
                 {employees.map((employee) => (
                     <option key={employee.id} value={employee.id}>
                         {employee.name}
