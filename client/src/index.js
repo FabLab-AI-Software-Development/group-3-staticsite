@@ -8,6 +8,7 @@ import ChatInput from './components/chat/chatinput';
 import { Employee } from './pages/employees';
 import { Company } from './pages/companies';
 import { Question } from './pages/questions';
+import { FAQs } from './pages/faqs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +19,7 @@ root.render(
         <Route path="/Company" element={<Company />} />
         <Route path="/Employee" element={<Employee />} />
         <Route path="/Question" element={<Question />} />
-        <Route path="/ChatInput" element={<ChatInput />} />
+        <Route path="/FAQs" element={<FAQs />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

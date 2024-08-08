@@ -41,7 +41,9 @@ const Question = () => {
 
     return (
         <div>
-            <Navigation />
+            <p class="left-div">
+                <Navigation />
+            </p>
             <p class="centered-div">
                 <h2>Ask a Question</h2>
                 <input class="text-input" type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />
