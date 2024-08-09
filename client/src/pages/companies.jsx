@@ -16,6 +16,9 @@ const Company = () => {
         try {
             await submitCompanyData(companyData);
             console.log("Compant data submitted");
+            const fetchedCompanies = await fetchCompanies();
+            console.log("Companies", fetchedCompanies);
+            setCompanies(fetchedCompanies);
         } catch (error) {
             console.error("Error submitting company data:", error);
         }
@@ -44,13 +47,23 @@ const Company = () => {
             
             <br/><br/>
             <h2>Companies</h2>
+            <br/>
+            <table id="customers">
+                <tr>
+                    <th>Name</th>
+                    <th>Industry</th>
+                </tr>    
             {companies.length > 0 ? (
                 companies.map((company) => (
-                    <p key={company.id}>{company.name} {company.industry}</p>
+                    <tr key={company.id}>
+                        <td>{company.name}</td> 
+                        <td>{company.industry}</td>
+                    </tr>
                 ))
             ) : (
                 <p>No companies found</p>
             )}
+            </table>
         </div>
     );
 };
