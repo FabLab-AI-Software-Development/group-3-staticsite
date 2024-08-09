@@ -14,8 +14,8 @@ const Navigation = () => {
                 <li class="item"><Link to="/">Home</Link></li>
                 <li class="item"><Link to="/Company">Companies</Link></li>
                 <li class="item"><Link to="/Employee">Employees</Link></li>
-                <li class="item"><Link to="/Question">Questions</Link></li>
-                <li class="item"><Link to="/ChatInput">Chatbot</Link></li>
+                <li class="item"><Link to="/Question">Chatbot</Link></li>
+                <li class="item"><Link to="/FAQs">FAQs</Link></li>
             </ul>
             <div class="content">
                 <h1>

@@ -13,6 +13,10 @@ const Question = () => {
         try {
             console.log("Question: ", message);
             await fetchOpenAI(message, employeeId);
+
+            const fetchedQuestions = await fetchQuestionsByEmployee(employeeId);
+            console.log("Questions", fetchedQuestions);
+            setQuestions(fetchedQuestions); 
         } catch (error) {
             console.error("Error fetching companies:", error);
         }
@@ -37,7 +41,9 @@ const Question = () => {
 
     return (
         <div>
-            <Navigation />
+            <p class="left-div">
+                <Navigation />
+            </p>
             <p class="centered-div">
                 <h2>Ask a Question</h2>
                 <input class="text-input" type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />

@@ -19,6 +19,10 @@ const Employee = () => {
         try {
             await submitEmployeeData(employeeData);
             console.log("Employee data submitted");
+
+            const fetchedEmployees = await fetchEmployeesByCompany(companyId);
+            console.log("Employees", fetchedEmployees);
+            setEmployees(fetchedEmployees);
         } catch (error) {
             console.error("Error submitting employee data:", error);
         }
@@ -58,13 +62,23 @@ const Employee = () => {
             
             <br/><br/>  
             <h2>Employees</h2>
+            <br/>
+            <table id="customers">
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                </tr>  
             {employees.length > 0 ? (
                 employees.map((employee) => (
-                    <p key={employee.id}>{employee.name} {employee.role}</p>
+                    <tr key={employee.id}>
+                        <td>{employee.name}</td> 
+                        <td>{employee.role}</td>
+                    </tr>
                 ))
             ) : (
                 <p>No employees found</p>
             )}
+            </table>
         </div>
     );
 };
