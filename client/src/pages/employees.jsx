@@ -19,6 +19,10 @@ const Employee = () => {
         try {
             await submitEmployeeData(employeeData);
             console.log("Employee data submitted");
+
+            const fetchedEmployees = await fetchEmployeesByCompany(companyId);
+            console.log("Employees", fetchedEmployees);
+            setEmployees(fetchedEmployees);
         } catch (error) {
             console.error("Error submitting employee data:", error);
         }

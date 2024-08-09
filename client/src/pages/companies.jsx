@@ -16,6 +16,9 @@ const Company = () => {
         try {
             await submitCompanyData(companyData);
             console.log("Compant data submitted");
+            const fetchedCompanies = await fetchCompanies();
+            console.log("Companies", fetchedCompanies);
+            setCompanies(fetchedCompanies);
         } catch (error) {
             console.error("Error submitting company data:", error);
         }
