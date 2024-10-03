@@ -14,6 +14,16 @@ async function fetchEmployees() {
     }
 }
 
+async function fetchEmployee(employeeId) {
+    try {
+            const response = await axiosUtil.get(employeeSlug + '/' + employeeId);
+            console.log("getEmployees", response.data);
+            return response.data;
+    } catch (error) {
+            console.error(error);
+    }
+}
+
 async function fetchEmployeesByCompany(companyId) { 
     try {
         const response = await axiosUtil.get(employeeSlug + '/company/' + companyId);
@@ -28,6 +38,16 @@ async function fetchCompanies() {
     try {
             const response = await axiosUtil.get(companySlug);
             console.log("getCompanies", response.data);
+            return response.data;
+    } catch (error) {
+            console.error(error);
+    }
+}
+
+async function fetchCompany(companyId) {
+    try {
+            const response = await axiosUtil.get(companySlug + '/' + companyId);
+            console.log("getCompany", response.data);
             return response.data;
     } catch (error) {
             console.error(error);
@@ -85,4 +105,4 @@ async function submitQuestionData(questionData) {
     }
 }
 
-export {fetchEmployees, fetchEmployeesByCompany, fetchCompanies, fetchQuestions, fetchQuestionsByEmployee, submitEmployeeData, submitCompanyData, submitQuestionData};
+export {fetchEmployees, fetchEmployee, fetchEmployeesByCompany, fetchCompanies, fetchCompany, fetchQuestions, fetchQuestionsByEmployee, submitEmployeeData, submitCompanyData, submitQuestionData};

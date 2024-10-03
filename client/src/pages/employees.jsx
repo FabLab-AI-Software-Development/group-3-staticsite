@@ -7,14 +7,16 @@ const Employee = () => {
     const [companies, setCompanies] = useState([]);
     const [name, setName] = useState("");
     const [role, setRole] = useState("");
-    const [companyId, setCompanyId] = useState(1);
+    const [companyId, setCompanyId] = useState(1)
+    const [location, setLocation] = useState("");
 
-    const submitEmployee = async (name, role, companyId) => {
-        console.log("submitEmployeeData", name, role, companyId);
+    const submitEmployee = async (name, role, companyId, location) => {
+        console.log("submitEmployeeData", name, role, companyId, location);
         const employeeData = {
             name: name,
             role: role,
             companyId: parseInt(companyId),
+            location: location
         };
         try {
             await submitEmployeeData(employeeData);
@@ -58,7 +60,8 @@ const Employee = () => {
                     </option>
                 ))}
             </select>
-            <button class="submitButton" onClick={() => submitEmployee(name, role, companyId)}>Submit</button>
+            <input class="text-input" type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Enter employee location" />
+            <button class="submitButton" onClick={() => submitEmployee(name, role, companyId, location)}>Submit</button>
             
             <br/><br/>  
             <h2>Employees</h2>
@@ -67,12 +70,14 @@ const Employee = () => {
                 <tr>
                     <th>Name</th>
                     <th>Role</th>
+                    <th>Location</th>
                 </tr>  
             {employees.length > 0 ? (
                 employees.map((employee) => (
                     <tr key={employee.id}>
                         <td>{employee.name}</td> 
                         <td>{employee.role}</td>
+                        <td>{employee.location}</td>
                     </tr>
                 ))
             ) : (

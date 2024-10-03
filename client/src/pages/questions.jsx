@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchQuestions, fetchEmployees, fetchQuestionsByEmployee, submitQuestionData} from "../routes/api";
+import { fetchQuestions, fetchEmployees, fetchEmployee, fetchQuestionsByEmployee, fetchCompany, submitQuestionData} from "../routes/api";
 import { fetchOpenAI } from "../routes/openai-client";
 import Navigation from '../components/navigation/navigation';
 
@@ -12,7 +12,11 @@ const Question = () => {
     const fetchOpenAIResponse = async (message, employeeId) => {
         try {
             console.log("Question: ", message);
-            await fetchOpenAI(message, employeeId);
+
+            const employee = await fetchEmployee(employeeId);      
+            const company = await fetchCompany(employee.companyId);
+
+            await fetchOpenAI(message, employee.id, employee.role, employee.location, company.name);
 
             const fetchedQuestions = await fetchQuestionsByEmployee(employeeId);
             console.log("Questions", fetchedQuestions);
@@ -41,10 +45,10 @@ const Question = () => {
 
     return (
         <div>
-            <p class="left-div">
+            <div class="left-div">
                 <Navigation />
-            </p>
-            <p class="centered-div">
+            </div>
+            <div class="centered-div">
                 <h2>Ask a Question</h2>
                 <input class="text-input" type="text" value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Enter your question" />
                 
@@ -56,11 +60,11 @@ const Question = () => {
                     ))}
                 </select>
                 <button class="submitButton" onClick={() => fetchOpenAIResponse(request, employeeId)}>Submit</button>
-            </p>
+            </div>
 
             {questions.length > 0 ? (
                 questions.map((question) => (
-                    <div class="chat">
+                    <div key={question.id} class="chat">
                         <div class="msg sent">{question.request}<br/></div>
                         <div class="msg rcvd">{question.response}</div>
                     </div>

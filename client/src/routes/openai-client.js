@@ -2,7 +2,7 @@ import axios from 'axios';
 import {submitQuestionData} from './api';
 
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
-const token = 'sk-proj-DyGgtGZ3FoXe8Vvy3crBT3BlbkFJjORNYIEIAQK4Ukkpglxp';
+const token = '';
 
 const headers = {
     'Content-Type': 'application/json',
@@ -16,14 +16,14 @@ const requestData = {
     temperature: 0.7
 };
 
-async function fetchOpenAI(request, employeeId) {
+async function fetchOpenAI(request, employeeId, employeeRole, employeeLocation, companyName) {
     try {
-        requestData.messages[0].content = request;
+        requestData.messages[0].content = "I work as a " + employeeRole + " for " + companyName + " in " + employeeLocation + ". " + request;
         await axios.post(apiUrl, requestData, { headers })
             .then(response => {
                 const responseContent = response.data.choices[0].message.content;
                 console.log(responseContent);
-                submitQuestionData({ request: request, response: responseContent, employeeId: employeeId});
+                submitQuestionData({ request: request, response: responseContent, employeeId: parseInt(employeeId)});
                 return response.data;
             })
             .catch(error => {

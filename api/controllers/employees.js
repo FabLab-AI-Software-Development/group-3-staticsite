@@ -3,10 +3,10 @@ const prisma = new PrismaClient();
 
 const createEmployee = async (req, res) => {
     try {
-      const { name, role, companyId } = req.body;
+      const { name, role, companyId, location } = req.body;
 
       await prisma.employee.create({
-        data: {name, role, companyId},
+        data: {name, role, companyId, location},
       });
       return res.status(200).json({
         message: "Employee has been added.",
@@ -68,12 +68,12 @@ const createEmployee = async (req, res) => {
 
   const updateEmployee = async (req, res) => {
     try {
-      const { name, role, companyId } = req.body;
+      const { name, role, companyId, location } = req.body;
       await prisma.employee.update({
         where: {
           id: Number(req.params.id),
         },
-        data: { name, role, companyId },
+        data: { name, role, companyId, location },
       });
       return res.status(200).json({
         message: "Employee has been updated.",
