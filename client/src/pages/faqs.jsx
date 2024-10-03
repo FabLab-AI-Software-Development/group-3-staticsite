@@ -3,10 +3,12 @@ import Navigation from '../components/navigation/navigation';
 const FAQs = () => {
     return (
         <div class="left-div">
+                    
             <Navigation />
-            <h1>Horizon Hub-FAQ's</h1>
-<h2>Ready to spark some HR magic? Dive into the prompts below and pop them into the chatbox to unlock a treasure trove of creative insights and lively discussions! Let’s elevate your training and development game and make HR fun and effective together!
-</h2>
+            <br/><br/>
+            <h2>Horizon Hub-FAQ's</h2>
+<h3>Ready to spark some HR magic? Dive into the prompts below and pop them into the chatbox to unlock a treasure trove of creative insights and lively discussions! Let’s elevate your training and development game and make HR fun and effective together!
+</h3>
 
 <p class="left-div"> Recruitment and Selection
 “What are the key components of an effective job description, and how can we ensure that it attracts a diverse pool of candidates?”

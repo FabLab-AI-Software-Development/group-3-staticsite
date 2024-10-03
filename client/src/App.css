@@ -57,26 +57,29 @@
 
 .content {
   display: flex;
-  min-height: 300px;
+  min-height: wrap-content;
+  width: wrap-content;
   padding: 20px;
 }
 
 .list {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 300px;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  min-height: wrap-content;
   list-style: none;
   color: #fff;
   background-color: #348f6c;
   border-radius: 40px;
+  font-size: large;
 }
 
 .item {
   /* important: position, z-index, background-color!!!, border-radius */
   position: relative;
   z-index: 2;
-  padding: 10px 20px;
+  padding: 20px;
   background-color: #348f6c;
   border-radius: 0 20px 20px 0;
 }

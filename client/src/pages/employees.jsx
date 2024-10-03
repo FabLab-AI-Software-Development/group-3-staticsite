@@ -48,8 +48,11 @@ const Employee = () => {
     }, [ companyId ]);
 
     return (
+      <div>  
+        <div class="left-div">
+        <Navigation />
+        </div>
         <div class="centered-div">
-            <Navigation />
             <h2>Add Employee</h2>
             <input class="text-input" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter employee name" />
             <input class="text-input" type="text" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Enter employee role" />
@@ -85,6 +88,7 @@ const Employee = () => {
             )}
             </table>
         </div>
+    </div>
     );
 };
 

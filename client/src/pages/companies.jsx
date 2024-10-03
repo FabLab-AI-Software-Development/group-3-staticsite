@@ -38,8 +38,11 @@ const Company = () => {
     }, []);
 
     return (
+    <div>  
+        <div class="left-div">
+        <Navigation />
+        </div>
         <div class="centered-div">
-            <Navigation />
             <h2>Add Company</h2>
             <input class="text-input" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter company name" />
             <input class="text-input" type="text" value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Enter industry" />
@@ -65,6 +68,7 @@ const Company = () => {
             )}
             </table>
         </div>
+    </div>
     );
 };
 
